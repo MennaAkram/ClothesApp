@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ClothesApp</string>
+    <string name="search">search</string>
+    <string name="temperature">20</string>
+    <string name="o">o</string>
+    <string name="c">C</string>
+    <string name="button_text">Let\'s choose your outfit</string>
+    <string name="day1_temp">20</string>
+    <string name="day1_time">12:00</string>
+    <string name="day1_date">11/4</string>
+    <string name="day_details">17-4-2023   10:05</string>
+    <string name="country_name">Cairo</string>
+    <string name="try_again">Try Again</string>
+    <string name="weather_statu">Sunny</string>
 </resources>
