@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/no_internet_lottie"
         android:layout_width="match_parent"
@@ -25,19 +24,18 @@
         android:text="@string/try_again"
         android:visibility="gone"
         android:layout_marginBottom="@dimen/spacing_extra_giant"
-        app:layout_constraintBottom_toTopOf="@+id/clothes_card_view"
+        android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint"
-        android:visibility="visible"
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/information_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacing_medium"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/clothes_card_view">
-
+        android:visibility="visible"
+        app:constraint_referenced_ids="country_name_text_view,
+        day_details_text_view,text_view,degree_text_view,
+        temp_text_view,weather_statu_text_view,lottieAnimationView"/>
             <TextView
                 android:id="@+id/country_name_text_view"
                 android:layout_width="match_parent"
@@ -47,7 +45,6 @@
                 android:layout_marginTop="@dimen/spacing_giant"
                 android:layout_marginBottom="@dimen/spacing_small"
                 android:textSize="@dimen/text_giant"
-                app:layout_constraintBottom_toTopOf="@+id/day_details_text_view"
                 app:layout_constraintTop_toTopOf="parent" />
             <TextView
             android:id="@+id/day_details_text_view"
@@ -83,8 +80,7 @@
             app:layout_constraintTop_toBottomOf="@id/text_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
+            <TextView
             android:id="@+id/weather_statu_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,37 +88,34 @@
             android:textSize="@dimen/text_giant"
             android:layout_marginVertical="@dimen/spacing_medium"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/temp_text_view"
-            app:layout_constraintBottom_toTopOf="@id/lottieAnimationView"/>
-
+            app:layout_constraintTop_toBottomOf="@id/temp_text_view"/>
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieAnimationView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/lottie_height"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/weather_statu_text_view"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/cloud_light" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.cardview.widget.CardView
         android:id="@+id/clothes_card_view"
         android:layout_width="@dimen/card_dim"
         android:layout_height="@dimen/card_dim"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraint"
-        android:visibility="visible"
         android:layout_margin="@dimen/spacing_medium"
-        app:cardCornerRadius="@dimen/radius_default">
+        android:visibility="visible"
+        app:cardCornerRadius="@dimen/radius_large"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <ImageView
-        android:id="@+id/clothes_image_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        <ImageView
+            android:id="@+id/clothes_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@drawable/shirt1"
+            android:scaleType="centerCrop" />
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
